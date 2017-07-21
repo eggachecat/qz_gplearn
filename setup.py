@@ -5,10 +5,10 @@
 import sys
 from sklearn.externals import joblib
 from setuptools import setup, find_packages
-import gplearn
+import YCgplearn
 
 DESCRIPTION = __doc__
-VERSION = gplearn.__version__
+VERSION = YCgplearn.__version__
 
 setup_options = dict(
     name='YCgplearn',
@@ -34,7 +34,7 @@ setup_options = dict(
                  'Programming Language :: Python :: 3.4'],
     author='Trevor Stephens',
     author_email='trev.stephens@gmail.com',
-    url='https://github.com/trevorstephens/gplearn',
+    url='https://github.com/trevorstephens/YCgplearn',
     license='new BSD',
     packages=find_packages(),
     test_suite='nose.collector',

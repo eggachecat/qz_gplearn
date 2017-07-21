@@ -28,7 +28,7 @@ except ImportError:
     from urllib.request import urlopen
     from urllib.error import HTTPError
 
-import gplearn
+import YCgplearn
 from sklearn.base import BaseEstimator
 
 # Conveniently import all assertions in one place.
@@ -561,9 +561,9 @@ def all_estimators(include_meta_estimators=False,
 
     all_classes = []
     # get parent folder
-    path = gplearn.__path__
+    path = YCgplearn.__path__
     for importer, modname, ispkg in pkgutil.walk_packages(
-            path=path, prefix='gplearn.', onerror=lambda x: None):
+            path=path, prefix='YCgplearn.', onerror=lambda x: None):
         if ".tests." in modname:
             continue
         module = __import__(modname, fromlist="dummy")

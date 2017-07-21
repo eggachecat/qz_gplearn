@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator
-from gplearn.skutils.testing import assert_true
+from YCgplearn.skutils.testing import assert_true
 
 
 class ArraySlicingWrapper(object):

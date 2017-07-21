@@ -1,13 +1,13 @@
 import numpy as np
 
-from gplearn.skutils.class_weight import compute_class_weight
-from gplearn.skutils.class_weight import compute_sample_weight
+from YCgplearn.skutils.class_weight import compute_class_weight
+from YCgplearn.skutils.class_weight import compute_sample_weight
 
-from gplearn.skutils.testing import assert_array_almost_equal
-from gplearn.skutils.testing import assert_almost_equal
-from gplearn.skutils.testing import assert_raises
-from gplearn.skutils.testing import assert_true
-from gplearn.skutils.testing import assert_equal
+from YCgplearn.skutils.testing import assert_array_almost_equal
+from YCgplearn.skutils.testing import assert_almost_equal
+from YCgplearn.skutils.testing import assert_raises
+from YCgplearn.skutils.testing import assert_true
+from YCgplearn.skutils.testing import assert_equal
 
 
 def test_compute_class_weight():

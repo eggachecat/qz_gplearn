@@ -10,23 +10,23 @@ from numpy.testing import assert_array_equal, assert_warns
 import scipy.sparse as sp
 from nose.tools import assert_raises, assert_true, assert_false, assert_equal
 
-from gplearn.skutils.testing import assert_raises_regexp
-from gplearn.skutils import as_float_array, check_array, check_symmetric
-from gplearn.skutils import check_X_y
-from gplearn.skutils.estimator_checks import NotAnArray
+from YCgplearn.skutils.testing import assert_raises_regexp
+from YCgplearn.skutils import as_float_array, check_array, check_symmetric
+from YCgplearn.skutils import check_X_y
+from YCgplearn.skutils.estimator_checks import NotAnArray
 from sklearn.random_projection import sparse_random_matrix
 from sklearn.linear_model import ARDRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.svm import SVR
 from sklearn.datasets import make_blobs
-from gplearn.skutils.validation import (
+from YCgplearn.skutils.validation import (
     NotFittedError,
     has_fit_parameter,
     check_is_fitted,
     check_consistent_length)
 
-from gplearn.skutils.testing import assert_raise_message
+from YCgplearn.skutils.testing import assert_raise_message
 
 
 def test_as_float_array():

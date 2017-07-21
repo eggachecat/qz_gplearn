@@ -10,14 +10,14 @@ import numpy as np
 import pickle
 import sys
 
-from gplearn.genetic import SymbolicRegressor, SymbolicTransformer
-from gplearn.fitness import weighted_pearson, weighted_spearman
-from gplearn._program import _Program
-from gplearn.fitness import _fitness_map
-from gplearn.functions import (add2, sub2, mul2, div2, sqrt1, log1, abs1, neg1,
-                               inv1, max2, min2, sin1, cos1, tan1)
-from gplearn.functions import _Function
-from gplearn.fitness import make_fitness
+from YCgplearn.genetic import SymbolicRegressor, SymbolicTransformer
+from YCgplearn.fitness import weighted_pearson, weighted_spearman
+from YCgplearn._program import _Program
+from YCgplearn.fitness import _fitness_map
+from YCgplearn.functions import (add2, sub2, mul2, div2, sqrt1, log1, abs1, neg1,
+                                 inv1, max2, min2, sin1, cos1, tan1)
+from YCgplearn.functions import _Function
+from YCgplearn.fitness import make_fitness
 from scipy.stats import pearsonr, spearmanr
 
 from sklearn.externals.six.moves import StringIO
@@ -28,14 +28,14 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 
-from gplearn.skutils.testing import assert_false, assert_true
-from gplearn.skutils.testing import assert_greater
-from gplearn.skutils.testing import assert_equal, assert_almost_equal
-from gplearn.skutils.testing import assert_array_equal
-from gplearn.skutils.testing import assert_array_almost_equal
-from gplearn.skutils.testing import assert_raises
-from gplearn.skutils.testing import assert_warns
-from gplearn.skutils.validation import check_random_state
+from YCgplearn.skutils.testing import assert_false, assert_true
+from YCgplearn.skutils.testing import assert_greater
+from YCgplearn.skutils.testing import assert_equal, assert_almost_equal
+from YCgplearn.skutils.testing import assert_array_equal
+from YCgplearn.skutils.testing import assert_array_almost_equal
+from YCgplearn.skutils.testing import assert_raises
+from YCgplearn.skutils.testing import assert_warns
+from YCgplearn.skutils.validation import check_random_state
 
 # load the boston dataset and randomly permute it
 rng = check_random_state(0)

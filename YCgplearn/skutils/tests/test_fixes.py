@@ -9,7 +9,7 @@ from nose.tools import assert_equal
 from numpy.testing import (assert_almost_equal,
                            assert_array_almost_equal)
 
-from gplearn.skutils.fixes import divide, expit
+from YCgplearn.skutils.fixes import divide, expit
 
 
 def test_expit():

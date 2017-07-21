@@ -13,26 +13,26 @@ import struct
 
 from sklearn.externals.six.moves import zip
 from sklearn.externals.joblib import hash
-from gplearn.skutils.testing import assert_raises
-from gplearn.skutils.testing import assert_raise_message
-from gplearn.skutils.testing import assert_equal
-from gplearn.skutils.testing import assert_true
-from gplearn.skutils.testing import assert_array_equal
-from gplearn.skutils.testing import assert_array_almost_equal
-from gplearn.skutils.testing import set_random_state
-from gplearn.skutils.testing import assert_greater
-from gplearn.skutils.testing import SkipTest
-from gplearn.skutils.testing import ignore_warnings
+from YCgplearn.skutils.testing import assert_raises
+from YCgplearn.skutils.testing import assert_raise_message
+from YCgplearn.skutils.testing import assert_equal
+from YCgplearn.skutils.testing import assert_true
+from YCgplearn.skutils.testing import assert_array_equal
+from YCgplearn.skutils.testing import assert_array_almost_equal
+from YCgplearn.skutils.testing import set_random_state
+from YCgplearn.skutils.testing import assert_greater
+from YCgplearn.skutils.testing import SkipTest
+from YCgplearn.skutils.testing import ignore_warnings
 
 from sklearn.base import clone, ClassifierMixin
 from sklearn.metrics import accuracy_score, adjusted_rand_score, f1_score
 
 from sklearn.pipeline import make_pipeline
 
-from gplearn.skutils.validation import DataConversionWarning, NotFittedError
+from YCgplearn.skutils.validation import DataConversionWarning, NotFittedError
 from sklearn.cross_validation import train_test_split
 
-from gplearn.skutils import shuffle
+from YCgplearn.skutils import shuffle
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_iris, load_boston, make_blobs
 
