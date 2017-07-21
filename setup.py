@@ -41,7 +41,7 @@ setup_options = dict(
     zip_safe=False,
     package_data={
         '': ['LICENSE'],
-        'gplearn': ['tests/*.py', 'skutils/*.py', 'skutils/tests/*.py'],
+        'YCgplearn': ['tests/*.py', 'skutils/*.py', 'skutils/tests/*.py'],
     },
     install_requires=['scikit-learn>=0.15.2'],
     extras_require={'testing': ['nose'],
