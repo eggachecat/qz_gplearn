@@ -78,10 +78,10 @@ def make_fitness(function, greater_is_better):
         raise ValueError('function requires 3 arguments (y, y_pred, w),'
                          ' got %d.'
                          % six.get_function_code(function).co_argcount)
-    if not isinstance(function(np.array([1, 1]),
-                      np.array([2, 2]),
-                      np.array([1, 1])), numbers.Number):
-        raise ValueError('function must return a numeric.')
+    # if not isinstance(function(np.array([1, 1]),
+    #                   np.array([2, 2]),
+    #                   np.array([1, 1])), numbers.Number):
+    #     raise ValueError('function must return a numeric.')
 
     return _Fitness(function, greater_is_better)
 

@@ -134,9 +134,16 @@ def _parallel_evolve(n_programs, parents, X, y, sample_weight, seeds, params):
             curr_sample_weight = sample_weight.copy()
         oob_sample_weight = curr_sample_weight.copy()
 
-        indices, not_indices = program.get_all_indices(n_samples,
-                                                       max_samples,
-                                                       random_state)
+        # for time series sampling:
+        indices = np.arange(max_samples)
+        not_indices = np.arange(max_samples, n_samples)
+
+        # print(indices)
+        # print(not_indices)
+
+        # indices, not_indices = program.get_all_indices(n_samples,
+        #                                                max_samples,
+        #                                                random_state)
 
         curr_sample_weight[not_indices] = 0
         oob_sample_weight[indices] = 0
@@ -152,7 +159,6 @@ def _parallel_evolve(n_programs, parents, X, y, sample_weight, seeds, params):
 
 
 class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
-
     """Base class for symbolic regression / classification estimators.
 
     Warning: This class should not be used directly.
@@ -268,7 +274,7 @@ class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
                    oob_fitness,
                    remaining_time))
 
-    def fit(self, X, y, sample_weight=None):
+    def fit(self, X, y, sample_weight=None, callback=None, draw_best=True):
         """Fit the Genetic Program according to X, y.
 
         Parameters
@@ -361,11 +367,11 @@ class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
                              % self.init_method)
 
         if (not isinstance(self.const_range, tuple) or
-                len(self.const_range) != 2):
+                    len(self.const_range) != 2):
             raise ValueError('const_range should be a tuple with length two.')
 
         if (not isinstance(self.init_depth, tuple) or
-                len(self.init_depth) != 2):
+                    len(self.init_depth) != 2):
             raise ValueError('init_depth should be a tuple with length two.')
         if self.init_depth[0] > self.init_depth[1]:
             raise ValueError('init_depth should be in increasing numerical '
@@ -404,6 +410,7 @@ class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
             self._verbose_reporter()
             start_time = time()
 
+        canvas = None
         for gen in range(prior_generations, self.generations):
 
             if gen == 0:
@@ -469,6 +476,25 @@ class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
                 if best_fitness <= self.stopping_criteria:
                     break
 
+            if callback is not None:
+
+                if canvas is None:
+                    canvas = callback(population, gen, X, sub_canvas_id=1)
+                else:
+                    canvas = callback(population, gen, X, canvas=canvas, sub_canvas_id=1)
+
+            if callback is not None:
+
+                if self._metric.greater_is_better:
+                    program = population[np.argmax(fitness)]
+                else:
+                    program = population[np.argmin(fitness)]
+
+                if canvas is None:
+                    canvas = callback(program, gen, X, sub_canvas_id=2)
+                else:
+                    canvas = callback(program, gen, X, canvas=canvas, sub_canvas_id=2)
+
         if isinstance(self, RegressorMixin):
             # Find the best individual in the final generation
             if self._metric.greater_is_better:
@@ -507,7 +533,6 @@ class BaseSymbolic(six.with_metaclass(ABCMeta, BaseEstimator)):
 
 
 class SymbolicRegressor(BaseSymbolic, RegressorMixin):
-
     """A Genetic Programming symbolic regressor.
 
     A symbolic regressor is an estimator that begins by building a population
@@ -749,7 +774,6 @@ class SymbolicRegressor(BaseSymbolic, RegressorMixin):
 
 
 class SymbolicTransformer(BaseSymbolic, TransformerMixin):
-
     """A Genetic Programming symbolic transformer.
 
     A symbolic transformer is a supervised transformer that begins by building
