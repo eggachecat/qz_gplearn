@@ -8,8 +8,8 @@ import numpy as np
 
 from numpy import maximum
 
-from YCgplearn.functions import _protected_sqrt, make_function
-from YCgplearn.skutils.testing import assert_raises
+from qz_gplearn.functions import _protected_sqrt, make_function
+from qz_gplearn.skutils.testing import assert_raises
 
 
 def test_validate_function():

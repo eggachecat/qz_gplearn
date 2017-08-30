@@ -13,26 +13,26 @@ import struct
 
 from sklearn.externals.six.moves import zip
 from sklearn.externals.joblib import hash
-from YCgplearn.skutils.testing import assert_raises
-from YCgplearn.skutils.testing import assert_raise_message
-from YCgplearn.skutils.testing import assert_equal
-from YCgplearn.skutils.testing import assert_true
-from YCgplearn.skutils.testing import assert_array_equal
-from YCgplearn.skutils.testing import assert_array_almost_equal
-from YCgplearn.skutils.testing import set_random_state
-from YCgplearn.skutils.testing import assert_greater
-from YCgplearn.skutils.testing import SkipTest
-from YCgplearn.skutils.testing import ignore_warnings
+from qz_gplearn.skutils.testing import assert_raises
+from qz_gplearn.skutils.testing import assert_raise_message
+from qz_gplearn.skutils.testing import assert_equal
+from qz_gplearn.skutils.testing import assert_true
+from qz_gplearn.skutils.testing import assert_array_equal
+from qz_gplearn.skutils.testing import assert_array_almost_equal
+from qz_gplearn.skutils.testing import set_random_state
+from qz_gplearn.skutils.testing import assert_greater
+from qz_gplearn.skutils.testing import SkipTest
+from qz_gplearn.skutils.testing import ignore_warnings
 
 from sklearn.base import clone, ClassifierMixin
 from sklearn.metrics import accuracy_score, adjusted_rand_score, f1_score
 
 from sklearn.pipeline import make_pipeline
 
-from YCgplearn.skutils.validation import DataConversionWarning, NotFittedError
+from qz_gplearn.skutils.validation import DataConversionWarning, NotFittedError
 from sklearn.cross_validation import train_test_split
 
-from YCgplearn.skutils import shuffle
+from qz_gplearn.skutils import shuffle
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_iris, load_boston, make_blobs
 

@@ -4,7 +4,7 @@ import sys
 
 from nose.tools import assert_raises
 
-from YCgplearn.skutils.testing import (
+from qz_gplearn.skutils.testing import (
     _assert_less,
     _assert_greater,
     assert_less_equal,

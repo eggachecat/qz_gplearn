@@ -5,13 +5,13 @@
 import sys
 from sklearn.externals import joblib
 from setuptools import setup, find_packages
-import YCgplearn
+import qz_gplearn
 
 DESCRIPTION = __doc__
-VERSION = YCgplearn.__version__
+VERSION = qz_gplearn.__version__
 
 setup_options = dict(
-    name='YCgplearn',
+    name='qz_gplearn',
     version=VERSION,
     description=DESCRIPTION,
     long_description=open("README.rst").read(),
@@ -34,14 +34,14 @@ setup_options = dict(
                  'Programming Language :: Python :: 3.4'],
     author='Trevor Stephens',
     author_email='trev.stephens@gmail.com',
-    url='https://github.com/trevorstephens/YCgplearn',
+    url='https://github.com/trevorstephens/qz_gplearn',
     license='new BSD',
     packages=find_packages(),
     test_suite='nose.collector',
     zip_safe=False,
     package_data={
         '': ['LICENSE'],
-        'YCgplearn': ['tests/*.py', 'skutils/*.py', 'skutils/tests/*.py'],
+        'qz_gplearn': ['tests/*.py', 'skutils/*.py', 'skutils/tests/*.py'],
     },
     install_requires=['scikit-learn>=0.15.2'],
     extras_require={'testing': ['nose'],

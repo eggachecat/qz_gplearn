@@ -4,8 +4,8 @@
 #
 # License: BSD 3 clause
 
-from YCgplearn.fitness import make_fitness, _mean_square_error
-from YCgplearn.skutils.testing import assert_raises
+from qz_gplearn.fitness import make_fitness, _mean_square_error
+from qz_gplearn.skutils.testing import assert_raises
 
 
 def test_validate_fitness():

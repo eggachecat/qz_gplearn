@@ -14,20 +14,20 @@ import pkgutil
 
 from sklearn.externals.six import PY3
 from sklearn.externals.six.moves import zip
-from YCgplearn.skutils.testing import assert_false, clean_warning_registry
-from YCgplearn.skutils.testing import all_estimators
-from YCgplearn.skutils.testing import assert_greater
-from YCgplearn.skutils.testing import assert_in
-from YCgplearn.skutils.testing import SkipTest
-from YCgplearn.skutils.testing import ignore_warnings
+from qz_gplearn.skutils.testing import assert_false, clean_warning_registry
+from qz_gplearn.skutils.testing import all_estimators
+from qz_gplearn.skutils.testing import assert_greater
+from qz_gplearn.skutils.testing import assert_in
+from qz_gplearn.skutils.testing import SkipTest
+from qz_gplearn.skutils.testing import ignore_warnings
 
-import YCgplearn
+import qz_gplearn
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
 
 from sklearn.cross_validation import train_test_split
 from sklearn.linear_model.base import LinearClassifierMixin
-from YCgplearn.skutils.estimator_checks import (
+from qz_gplearn.skutils.estimator_checks import (
     check_dtype_object,
     check_parameters_default_constructible,
     check_estimator_sparse_data,
@@ -201,7 +201,7 @@ def test_configure():
     # Smoke test the 'configure' step of setup, this tests all the
     # 'configure' functions in the setup.pys in the scikit
     cwd = os.getcwd()
-    setup_path = os.path.abspath(os.path.join(YCgplearn.__path__[0], '..'))
+    setup_path = os.path.abspath(os.path.join(qz_gplearn.__path__[0], '..'))
     setup_filename = os.path.join(setup_path, 'setup.py')
     if not os.path.exists(setup_filename):
         return
@@ -307,10 +307,10 @@ def test_class_weight_auto_linear_classifiers():
 def test_import_all_consistency():
     # Smoke test to check that any name in a __all__ list is actually defined
     # in the namespace of the module or package.
-    pkgs = pkgutil.walk_packages(path=YCgplearn.__path__, prefix='YCgplearn.',
+    pkgs = pkgutil.walk_packages(path=qz_gplearn.__path__, prefix='qz_gplearn.',
                                  onerror=lambda _: None)
     submods = [modname for _, modname, _ in pkgs]
-    for modname in submods + ['YCgplearn']:
+    for modname in submods + ['qz_gplearn']:
         if ".tests." in modname:
             continue
         package = __import__(modname, fromlist="dummy")
@@ -323,11 +323,11 @@ def test_import_all_consistency():
 
 def test_root_import_all_completeness():
     EXCEPTIONS = ('skutils', 'tests', 'base', 'setup')
-    for _, modname, _ in pkgutil.walk_packages(path=YCgplearn.__path__,
+    for _, modname, _ in pkgutil.walk_packages(path=qz_gplearn.__path__,
                                                onerror=lambda _: None):
         if '.' in modname or modname.startswith('_') or modname in EXCEPTIONS:
             continue
-        assert_in(modname, YCgplearn.__all__)
+        assert_in(modname, qz_gplearn.__all__)
 
 
 def test_non_transformer_estimators_n_iter():

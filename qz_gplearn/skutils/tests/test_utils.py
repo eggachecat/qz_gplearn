@@ -4,19 +4,19 @@ import numpy as np
 import scipy.sparse as sp
 from scipy.linalg import pinv2
 
-from YCgplearn.skutils.testing import (assert_equal, assert_raises, assert_true,
-                                       assert_almost_equal, assert_array_equal,
-                                       SkipTest)
+from qz_gplearn.skutils.testing import (assert_equal, assert_raises, assert_true,
+                                        assert_almost_equal, assert_array_equal,
+                                        SkipTest)
 
-from YCgplearn.skutils import check_random_state
-from YCgplearn.skutils import deprecated
-from YCgplearn.skutils import resample
-from YCgplearn.skutils import safe_mask
-from YCgplearn.skutils import column_or_1d
-from YCgplearn.skutils import safe_indexing
-from YCgplearn.skutils import shuffle
+from qz_gplearn.skutils import check_random_state
+from qz_gplearn.skutils import deprecated
+from qz_gplearn.skutils import resample
+from qz_gplearn.skutils import safe_mask
+from qz_gplearn.skutils import column_or_1d
+from qz_gplearn.skutils import safe_indexing
+from qz_gplearn.skutils import shuffle
 from sklearn.utils.extmath import pinvh
-from YCgplearn.skutils.mocking import MockDataFrame
+from qz_gplearn.skutils.mocking import MockDataFrame
 
 
 def test_make_rng():
